@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
-import 'src/generated/login.pbgrpc.dart';
+import '../src/generated/login.pbgrpc.dart';
 
 class LoginPage extends StatefulWidget {
   @override
