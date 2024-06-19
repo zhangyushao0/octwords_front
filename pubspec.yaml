@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
 
   grpc: ^3.0.0
+  firebase_auth: ^5.1.0
+  firebase_ui_auth: ^1.15.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -48,6 +50,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
   protoc_plugin: ^21.1.2
+  provider: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
