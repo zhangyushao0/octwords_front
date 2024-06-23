@@ -25,6 +25,14 @@ class WordClient extends $grpc.Client {
       '/word.Word/getWord',
       ($0.WordRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.WordReply.fromBuffer(value));
+  static final _$startNewLearn = $grpc.ClientMethod<$0.NewLearnRequest, $0.NewLearnReply>(
+      '/word.Word/startNewLearn',
+      ($0.NewLearnRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.NewLearnReply.fromBuffer(value));
+  static final _$finishLearn = $grpc.ClientMethod<$0.FinishLearnRequest, $0.FinishLearnReply>(
+      '/word.Word/finishLearn',
+      ($0.FinishLearnRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.FinishLearnReply.fromBuffer(value));
 
   WordClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -34,6 +42,14 @@ class WordClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.WordReply> getWord($0.WordRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getWord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.NewLearnReply> startNewLearn($0.NewLearnRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$startNewLearn, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.FinishLearnReply> finishLearn($0.FinishLearnRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$finishLearn, request, options: options);
   }
 }
 
@@ -49,11 +65,35 @@ abstract class WordServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.WordRequest.fromBuffer(value),
         ($0.WordReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.NewLearnRequest, $0.NewLearnReply>(
+        'startNewLearn',
+        startNewLearn_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.NewLearnRequest.fromBuffer(value),
+        ($0.NewLearnReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.FinishLearnRequest, $0.FinishLearnReply>(
+        'finishLearn',
+        finishLearn_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.FinishLearnRequest.fromBuffer(value),
+        ($0.FinishLearnReply value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.WordReply> getWord_Pre($grpc.ServiceCall call, $async.Future<$0.WordRequest> request) async {
     return getWord(call, await request);
   }
 
+  $async.Future<$0.NewLearnReply> startNewLearn_Pre($grpc.ServiceCall call, $async.Future<$0.NewLearnRequest> request) async {
+    return startNewLearn(call, await request);
+  }
+
+  $async.Future<$0.FinishLearnReply> finishLearn_Pre($grpc.ServiceCall call, $async.Future<$0.FinishLearnRequest> request) async {
+    return finishLearn(call, await request);
+  }
+
   $async.Future<$0.WordReply> getWord($grpc.ServiceCall call, $0.WordRequest request);
+  $async.Future<$0.NewLearnReply> startNewLearn($grpc.ServiceCall call, $0.NewLearnRequest request);
+  $async.Future<$0.FinishLearnReply> finishLearn($grpc.ServiceCall call, $0.FinishLearnRequest request);
 }
